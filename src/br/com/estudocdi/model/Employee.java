@@ -1,12 +1,11 @@
 package br.com.estudocdi.model;
 
-import java.util.Date;
 
 public class Employee {
 
 	private Integer id;
-	private String nome;
-	private Date dataNascimento;
+	private String name;
+	private Integer age;
 	
 	public Integer getId() {
 		return id;
@@ -16,20 +15,20 @@ public class Employee {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 	
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
-	public Date getDataNascimento() {
-		return dataNascimento;
+	public Integer getAge() {
+		return age;
 	}
 	
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setAge(Integer age) {
+		this.age = age;
 	}
 	
 }
