@@ -2,6 +2,7 @@ package br.com.estudocdi.servlet;
 
 import java.io.IOException;
 
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,12 +23,17 @@ public class EmployeeServlet extends HttpServlet {
 	@Inject @DaoMAP
 	private EmployeeDAO dao;
 	
+	@Inject
+	private Event<EmployeeDAO> eventEmployeeDAO;
+	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getParameter("action");
 		
 		Employee employee = new Employee();
+		
+		eventEmployeeDAO.fire(dao);
 		
 		if("add".equals(action)) {
 			employee.setName(request.getParameter("name"));
